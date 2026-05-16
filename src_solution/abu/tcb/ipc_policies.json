@@ -1,0 +1,42 @@
+{
+  "default": "deny",
+  "version": "1.0",
+  "allows": [
+    {
+      "from": "other.app",
+      "to": "tcb.event_log",
+      "method": "record",
+      "comment": "HTTP-слой может писать в журнал"
+    },
+    {
+      "from": "other.app",
+      "to": "tcb.safety",
+      "method": "should_emergency_stop",
+      "comment": "HTTP-слой запрашивает решение об аварийном стопе"
+    },
+    {
+      "from": "other.app",
+      "to": "tcb.limits",
+      "method": "enforce_depth_cap",
+      "comment": "HTTP-слой проверяет лимит глубины"
+    },
+    {
+      "from": "other.app",
+      "to": "tcb.limits",
+      "method": "enforce_rpm_cap",
+      "comment": "HTTP-слой проверяет лимит оборотов"
+    },
+    {
+      "from": "other.app",
+      "to": "tcb.event_log",
+      "method": "ring_snapshot",
+      "comment": "HTTP-слой читает кольцевой буфер"
+    },
+    {
+      "from": "other.app",
+      "to": "tcb.event_log",
+      "method": "read_full_tail",
+      "comment": "HTTP-слой читает полный журнал"
+    }
+  ]
+}
