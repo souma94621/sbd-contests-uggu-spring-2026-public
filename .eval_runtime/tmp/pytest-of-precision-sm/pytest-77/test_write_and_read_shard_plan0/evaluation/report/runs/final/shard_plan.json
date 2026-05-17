@@ -1,1 +1,0 @@
-{"run_id": "final", "shard_count": 2, "generated_at_utc": "2026-05-17T11:41:41Z", "organizer_root": "/home/precision-sm/sbd-contest/.eval_runtime/tmp/pytest-of-precision-sm/pytest-77/test_write_and_read_shard_plan0", "solutions_root": "evaluation", "shards": [{"index": 0, "solutions": ["solution_02"]}, {"index": 1, "solutions": ["solution_01", "solution_03", "solution_04"]}]}
