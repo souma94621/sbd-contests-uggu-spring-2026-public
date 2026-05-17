@@ -1,0 +1,29 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-05-17T00:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "abu-tcb",
+      "version": "0.2.0"
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "abu-tcb-controller",
+      "version": "0.2.0",
+      "bom-ref": "abu-tcb-controller",
+      "description": "Доверенная вычислительная база АБУ"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "abu-tcb-controller",
+      "dependsOn": []
+    }
+  ]
+}

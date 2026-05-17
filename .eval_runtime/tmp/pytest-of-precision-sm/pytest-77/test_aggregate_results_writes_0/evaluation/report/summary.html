@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Сводная оценка решений</title>
+<style>
+body { font-family: sans-serif; margin: 24px; }
+table { border-collapse: collapse; width: 100%; }
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px 8px;
+  vertical-align: top;
+}
+th { cursor: pointer; }
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6) { text-align: right; }
+</style>
+</head>
+<body>
+<h1>Сводная оценка решений участников</h1>
+<p>Сгенерировано (UTC): <code>2026-05-17T11:41:41Z</code></p>
+<table id="summary">
+<thead><tr><th>№</th><th>каталог</th><th>статус</th><th>баллы</th><th>максимум</th><th>процент</th><th>сертификация</th><th>подробный отчёт</th><th>комментарий</th><th>C01</th><th>C02</th></tr></thead>
+<tbody>
+<tr><td data-sort="1">1</td><td data-sort="solution_01">solution_01</td><td data-sort="ok">ok</td><td data-sort="61.5">61.5</td><td data-sort="75.0">75</td><td data-sort="82.0">82.0%</td><td data-sort="1000 руб.">1000 руб.</td><td data-sort="runs/final/details/detailed_result_solution_01.md"><a href="runs/final/details/detailed_result_solution_01.md">отчёт</a></td><td data-sort="авто">авто</td><td data-sort="3.0">3</td><td data-sort="2.5">2.5</td></tr>
+<tr><td data-sort="2">2</td><td data-sort="solution_02">solution_02</td><td data-sort="failed">failed</td><td data-sort=""></td><td data-sort="75.0">75</td><td data-sort=""></td><td data-sort=""></td><td data-sort=""></td><td data-sort="Ошибка прогона">Ошибка прогона</td><td data-sort=""></td><td data-sort=""></td></tr>
+</tbody>
+</table>
+<script>
+const table = document.getElementById("summary");
+for (const [index, th] of [...table.tHead.rows[0].cells].entries()) {
+  th.addEventListener("click", () => {
+    const rows = [...table.tBodies[0].rows];
+    const direction = th.dataset.direction === "asc" ? -1 : 1;
+    th.dataset.direction = direction === 1 ? "asc" : "desc";
+    rows.sort((a, b) => {
+      const av = a.cells[index].dataset.sort || "";
+      const bv = b.cells[index].dataset.sort || "";
+      const an = Number(av);
+      const bn = Number(bv);
+      if (av !== "" && bv !== "" && !Number.isNaN(an) && !Number.isNaN(bn)) {
+        return (an - bn) * direction;
+      }
+      return av.localeCompare(bv, "ru") * direction;
+    });
+    table.tBodies[0].append(...rows);
+  });
+}
+</script>
+</body>
+</html>

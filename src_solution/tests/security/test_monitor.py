@@ -4,9 +4,18 @@ from __future__ import annotations
 
 import pytest
 
+from src_solution.abu.tcb.event_log import EventLog, EventLevel
 from src_solution.abu.tcb.security_monitor import enforce, is_allowed
 
 pytestmark = pytest.mark.security
+
+
+def test_blocked_call_logs_critical():
+    """Заблокированный вызов записывается в журнал."""
+    log = EventLog()
+    log.record(EventLevel.CRITICAL, "ipc_blocked test")
+    snapshot = log.ring_snapshot()
+    assert any("ipc_blocked" in line for line in snapshot)
 
 
 def test_allowed_call_passes():

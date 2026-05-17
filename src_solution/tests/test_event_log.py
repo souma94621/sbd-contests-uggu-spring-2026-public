@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
 from src_solution.abu.tcb.event_log import EventLevel, EventLog
 
 

@@ -135,7 +135,6 @@ def current_mission() -> dict[str, Any]:
 @app.post("/api/v1/missions/tick")
 def tick_step() -> dict[str, Any]:
     """Один шаг симуляции."""
-    global _mission
     from src_solution.abu.tcb.event_log import default_log
     if _mission is None:
         raise HTTPException(status_code=400, detail="нет миссии")

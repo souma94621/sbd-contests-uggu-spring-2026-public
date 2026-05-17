@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-import pytest
-
 from src_solution.abu.tcb.limits import enforce_depth_cap, enforce_rpm_cap
 from src_solution.abu.tcb.safety import should_emergency_stop
 

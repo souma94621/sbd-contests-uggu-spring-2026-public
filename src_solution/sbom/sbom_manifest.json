@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-05-17T00:00:00Z",
+  "tcb": {
+    "serialNumber": "urn:uuid:aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "metadata": {
+      "type": "application",
+      "name": "abu-tcb",
+      "version": "0.2.0"
+    },
+    "components": [
+      {
+        "type": "application",
+        "name": "abu-tcb-controller",
+        "version": "0.2.0",
+        "bom_ref": "abu-tcb-controller",
+        "description": "Доверенная вычислительная база АБУ"
+      }
+    ],
+    "dependencies": [
+      {
+        "ref": "abu-tcb-controller",
+        "dependsOn": []
+      }
+    ]
+  },
+  "other": {
+    "serialNumber": "urn:uuid:bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+    "metadata": {
+      "type": "application",
+      "name": "abu-other",
+      "version": "0.2.0"
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "numpy",
+        "version": "1.26.0",
+        "bom_ref": "pkg:pypi/numpy@1.26.0"
+      },
+      {
+        "type": "library",
+        "name": "fastapi",
+        "version": "0.110.0",
+        "bom_ref": "pkg:pypi/fastapi@0.110.0"
+      },
+      {
+        "type": "library",
+        "name": "pydantic",
+        "version": "2.6.0",
+        "bom_ref": "pkg:pypi/pydantic@2.6.0"
+      },
+      {
+        "type": "library",
+        "name": "uvicorn",
+        "version": "0.29.0",
+        "bom_ref": "pkg:pypi/uvicorn@0.29.0"
+      }
+    ],
+    "dependencies": [
+      {"ref": "pkg:pypi/numpy@1.26.0", "dependsOn": []},
+      {"ref": "pkg:pypi/fastapi@0.110.0", "dependsOn": []},
+      {"ref": "pkg:pypi/pydantic@2.6.0", "dependsOn": []},
+      {"ref": "pkg:pypi/uvicorn@0.29.0", "dependsOn": []}
+    ]
+  }
+}
