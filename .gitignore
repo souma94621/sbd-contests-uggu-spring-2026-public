@@ -27,4 +27,8 @@ var/
 .tmp_eval
 
 evaluation/*
-.eval_runtime_dbg
+.eval_runtime_dbg.eval_runtime/
+.coverage.*
+var/
+artifacts/
+*.tar.gz
