@@ -31,12 +31,6 @@
       "to": "tcb_event_log",
       "method": "ring_snapshot",
       "comment": "HTTP-слой читает кольцевой буфер"
-    },
-    {
-      "from": "other_app",
-      "to": "tcb_event_log",
-      "method": "read_full_tail",
-      "comment": "HTTP-слой читает полный журнал"
     }
   ]
 }

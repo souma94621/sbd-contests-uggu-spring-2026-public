@@ -402,3 +402,36 @@ def test_app_ai_suggest(client):
     assert resp.status_code == 200
     assert "suggested_rpm" in resp.json()
     assert "suggested_feed_mm_rev" in resp.json()
+
+
+# ────────────────────────────────────────────────
+# domain_process.py
+# ────────────────────────────────────────────────
+
+class TestDomainProcess:
+    def test_call_enforce_depth_cap_true(self):
+        """DomainProcess вызывает enforce_depth_cap в отдельном процессе."""
+        from src_solution.abu.tcb.domain_process import DomainProcess
+        dp = DomainProcess()
+        assert dp.call("should_emergency_stop", "low", 0.1) is False
+
+    def test_call_enforce_depth_cap_false(self):
+        from src_solution.abu.tcb.domain_process import DomainProcess
+        dp = DomainProcess()
+        assert dp.call("enforce_depth_cap", 50.0, 100.0) is True
+
+    def test_call_enforce_depth_cap_exceeded(self):
+        from src_solution.abu.tcb.domain_process import DomainProcess
+        dp = DomainProcess()
+        assert dp.call("enforce_depth_cap", 150.0, 100.0) is False
+
+    def test_call_enforce_rpm_cap(self):
+        from src_solution.abu.tcb.domain_process import DomainProcess
+        dp = DomainProcess()
+        assert dp.call("enforce_rpm_cap", 200.0, 300.0) is True
+
+    def test_call_unknown_function_raises(self):
+        from src_solution.abu.tcb.domain_process import DomainProcess
+        dp = DomainProcess()
+        with pytest.raises((PermissionError, RuntimeError)):
+            dp.call("nonexistent_func", "arg")
